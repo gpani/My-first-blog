@@ -8,16 +8,12 @@
             <h1><a href="">Para amantes de la estabilidad</a></h1>
         </div>
 
-        <div>
-            <p>published: 19.06.2018, 15:28</p>
-            <h2><a href="">Debian</a></h2>
-            <p>Muy estable y 100% libre, Debian destaca por su sistema de paquetería .deb y su gestión de paquetes APT. Es una de las distribuciones más importantes de GNU/Linux, ya que en ella se basan gigantes como Ubuntu.</p>
-        </div>
-
-        <div>
-            <p>published: 19.06.2018, 15:14</p>
-            <h2><a href="">Arch Linuxt</a></h2>
-            <p>Una distribución modular en la que empiezas desde cero y tienes que ir añadiéndole los componentes que quieras. No es muy apta para principiante, y utiliza pacman, su propio gestor de paquetes. Se trata de una Rolling Release, lo que quiere decir que todos sus componentes van actualizándose sin necesidad de instalar versiones nuevas del sistema operativo.</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>

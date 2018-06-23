@@ -1,4 +1,6 @@
 {% load staticfiles %}
+
+
 <html>
  <head>
      <title>DistrosLinux blog</title>
@@ -9,8 +11,10 @@
  </head>
  <body>
         <div class="page-header">
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+            {% endif %}
             <h1><a href="/">Para amantes de la estabilidad</a></h1>
         </div>
         <div class="content container">

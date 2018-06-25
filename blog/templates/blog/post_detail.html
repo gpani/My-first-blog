@@ -13,10 +13,7 @@
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a> 
     <h1>{{ post.title }}</h1>
     <p>{{ post.text|linebreaksbr }}</p>
-{% empty %}
-    <p>No comments here yet :(</p>
-{% endblock %}
-
+<hr>
 {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_comment %}
     <div class="comment">
@@ -34,3 +31,4 @@
 {% empty %}
     <p>No comments here yet :(</p>
 {% endfor %}
+{% endblock %}
